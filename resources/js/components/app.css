@@ -1,0 +1,12 @@
+.image{
+    width: 60px;
+    height: 60px;
+    display: block;
+    background: #6610f2;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 50%;
+    color:#fff;
+    font-size: 18px;
+
+}
