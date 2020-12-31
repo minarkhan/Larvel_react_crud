@@ -19,13 +19,23 @@ class Contacts extends React.Component{
     componentDidMount(){
         this.fetchContacts();
     }
+
+    deleteContact = async (id) => {
+        const res = await Axios.delete(`/contact/${id}`);
+        if(res.data.status === 2000){
+            // this.fetchContacts();
+            // console.log(res);
+            this.props.history.push('/');
+        }
+    }
+
     render(){
         if(this.state.loading){
             return <h1>Loading...</h1>
         }
         return (
         <div>
-            {this.state.contacts.map(contact=>(<Contact contact = {contact} key = {contact.id}/>))}
+            {this.state.contacts.map(contact=>(<Contact contact = {contact} key = {contact.id} deleteContact = {this.deleteContact}/>))}
         </div>
         )
     }
